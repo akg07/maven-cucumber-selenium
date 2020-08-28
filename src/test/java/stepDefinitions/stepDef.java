@@ -31,4 +31,25 @@ public class stepDef {
 	public void login_should_not_be_successful_and_verify_the_message() throws Throwable {
 		assertEquals("Please enter valid Email ID/Mobile number", driver.findElement(By.xpath("//*[@class=\"ZAtlA-\"]")).getText());
 	}
+	
+//	Cartier Search option automation
+	WebDriver cartier;
+	
+	@Given("^user open the http://www\\.cartier\\.com/$")
+	public void user_open_the_http_www_cartier_com() throws Throwable {
+	    System.setProperty("webdriver.chrome.driver", "./src/test/resources/Driver/chromedriver.exe");
+	    cartier = new ChromeDriver();
+	    cartier.get("https://www.en.cartier.com/");
+	 
+	}
+	
+	@Given("^user fill Watch in search bar$")
+	public void user_fill_Watch_in_search_bar() throws Throwable {
+	    cartier.findElement(By.xpath("//input[@id=\"js-search-form-input\" and @class=\"c-search__form-input\"]")).sendKeys("Watches");
+	}
+
+	@Given("^user click on the search button$")
+	public void user_click_on_the_search_button() throws Throwable {
+	    cartier.findElement(By.xpath("//*[@type=\"submit\" and @title=\"Search\" and @class=\"c-search__form-btn\"]")).click();
+	}
 }
