@@ -32,7 +32,7 @@ public class stepDef {
 		assertEquals("Please enter valid Email ID/Mobile number", driver.findElement(By.xpath("//*[@class=\"ZAtlA-\"]")).getText());
 	}
 	
-//	Cartier Search option automation
+//	Cartie Search option automation
 	WebDriver cartier;
 	
 	@Given("^user open the http://www\\.cartier\\.com/$")
